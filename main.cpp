@@ -1,5 +1,6 @@
 #include "abs.hpp"
 #include "append.hpp"
+#include "utils.hpp"
 #include "zeros.hpp"
 
 #include <iostream>
@@ -7,48 +8,41 @@
 
 using namespace std;
 
-// Should output: 0 0 0 0 0 0 0 0 0 0
 void zerosTest()
 {
-    vector<int> v = ss::zeros(10);
+    cout << "tesing function zeros, should output: 0 0 0 0 0\n";
 
-    for (vector<int>::const_iterator i = v.begin(); i != v.end(); i++) {
-        cout << *i << ' ';
-    }
+    vector<int> v = ss::zeros(5);
 
-    cout << '\n';
+    ss::printVectorInteger(v);
 }
 
 // Should output: 10 20 30
 void appendTest()
 {
+    cout << "tesing function append, should output: 1 2 3\n";
+
     vector<int> v;
 
-    v = ss::append(v, 10);
-    v = ss::append(v, 20);
-    v = ss::append(v, 30);
+    v = ss::append(v, 1);
+    v = ss::append(v, 2);
+    v = ss::append(v, 3);
 
-    for (vector<int>::const_iterator i = v.begin(); i != v.end(); i++) {
-        cout << *i << ' ';
-    }
-
-    cout << '\n';
+    ss::printVectorInteger(v);
 }
 
 // Should output: 1 2 3 4 5
 void absTest()
 {
+    cout << "tesing function abs, should output: 1 2 3 4 5\n";
+
     // We don't support C++11
     static const int arr[] = {1, -2, 3, -4, 5};
     vector<int> v (arr, arr + sizeof(arr) / sizeof(arr[0]));
 
     v = ss::abs(v);
 
-    for (vector<int>::const_iterator i = v.begin(); i != v.end(); i++) {
-        cout << *i << ' ';
-    }
-
-    cout << '\n';
+    ss::printVectorInteger(v);
 }
 
 int main ()
