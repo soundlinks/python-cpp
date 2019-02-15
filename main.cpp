@@ -1,5 +1,6 @@
 #include "abs.hpp"
 #include "append.hpp"
+#include "mean.hpp"
 #include "sum.hpp"
 #include "utils.hpp"
 #include "zeros.hpp"
@@ -57,12 +58,26 @@ void sumTest()
     cout << s << '\n';
 }
 
+void meanTest()
+{
+    cout << "tesing function mean, should output: 3\n";
+
+    // We don't support C++11
+    static const int arr[] = {1, 2, 3, 4, 5};
+    vector<int> v (arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+    int m = ss::mean(v);
+
+    cout << m << '\n';
+}
+
 int main ()
 {
     zerosTest();
     appendTest();
     absTest();
     sumTest();
+    meanTest();
 
     return 0;
 }
