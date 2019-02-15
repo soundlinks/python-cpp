@@ -8,7 +8,6 @@ using namespace std;
 
 namespace ss
 {
-    // For integer
     vector<int> append(vector<int> v, int el);
 
     vector<int> append(vector<int> v, int el)
