@@ -1,5 +1,6 @@
 #include "abs.hpp"
 #include "append.hpp"
+#include "fft.hpp"
 #include "mean.hpp"
 #include "remove.hpp"
 #include "sum.hpp"
@@ -85,6 +86,20 @@ void removeTest()
     ss::printVectorInteger(r);
 }
 
+void fftTest()
+{
+    cout << "tesing function fft, should output: 4 (1, -2.41421) 0 (1, -0.414214) 0 (1, 0.414214) 0 (1, 2.41421)\n";
+
+    const Complex test[] = { 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0 };
+    CArray data(test, 8);
+
+    ss::fft(data);
+
+    for (int i = 0; i < 8; i++) {
+        cout << data[i] << endl;
+    }
+}
+
 int main ()
 {
     zerosTest();
@@ -93,6 +108,7 @@ int main ()
     sumTest();
     meanTest();
     removeTest();
+    fftTest();
 
     return 0;
 }
