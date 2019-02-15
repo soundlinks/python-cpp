@@ -1,6 +1,7 @@
 #include "abs.hpp"
 #include "append.hpp"
 #include "mean.hpp"
+#include "remove.hpp"
 #include "sum.hpp"
 #include "utils.hpp"
 #include "zeros.hpp"
@@ -71,6 +72,19 @@ void meanTest()
     cout << m << '\n';
 }
 
+void removeTest()
+{
+    cout << "tesing function remove, should output: 2 3 4 5\n";
+
+    // We don't support C++11
+    static const int arr[] = {1, 2, 3, 4, 5};
+    vector<int> v (arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+    vector<int> r = ss::remove(v, 0);
+
+    ss::printVectorInteger(r);
+}
+
 int main ()
 {
     zerosTest();
@@ -78,6 +92,7 @@ int main ()
     absTest();
     sumTest();
     meanTest();
+    removeTest();
 
     return 0;
 }
